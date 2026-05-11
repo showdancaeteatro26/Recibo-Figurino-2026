@@ -436,11 +436,8 @@ function handleCompFile(e,idx){
   }
 }
 
-// Inicializar com 1 comprovante ao carregar
-document.getElementById('iTotal').oninput=calcUnit;
-document.getElementById('iQtd').oninput=calcUnit;
-// init comprovantes immediately
-renderComprovantes();
+// Inicializar com 1 comprovante ao carregar - MOVED TO END
+
 document.getElementById('iDoc').addEventListener('input',function(){
   let v=this.value.replace(/\D/g,'');
   if(v.length<=11){
@@ -844,6 +841,11 @@ function toast(msg){
 const t=document.getElementById(‘toast’);t.textContent=msg;t.classList.add(‘on’);
 setTimeout(()=>t.classList.remove(‘on’),3500);
 }
+
+// ══ INIT ══
+document.getElementById(‘iTotal’).oninput=calcUnit;
+document.getElementById(‘iQtd’).oninput=calcUnit;
+renderComprovantes();
 </script>
 
 </body>
